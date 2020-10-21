@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".Activity3">
+
+    <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+        <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" android:layout_marginBottom="50px">
+            <TextView
+                    android:text="Numero 1:"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" android:id="@+id/TextvNum1" android:paddingTop="5px"
+                    android:paddingBottom="10px" android:textSize="20sp"/>
+            <TextView
+                    android:text="Numero 2:"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" android:id="@+id/TextvNum2" android:paddingBottom="10px"
+                    android:paddingTop="5px" android:textSize="20sp"/>
+        </LinearLayout>
+        <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+        <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+            <RadioGroup
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                <RadioButton
+                        android:text="Suma"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" android:id="@+id/RbtSuma"/>
+                <RadioButton
+                        android:text="Resta"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" android:id="@+id/RbtResta"/>
+                <RadioButton
+                        android:text="Multiplicacion"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" android:id="@+id/RbtMultiplicacion"/>
+                <RadioButton
+                        android:text="Dividir"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" android:id="@+id/RbtDividir"/>
+            </RadioGroup>
+            <Button
+                    android:text="Procesar"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" android:id="@+id/BtnProcesar"/>
+        </LinearLayout>
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
