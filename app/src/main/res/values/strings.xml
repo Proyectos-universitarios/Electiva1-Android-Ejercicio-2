@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">Electiva 1 Ejercicio 2</string>
+    <string name="Data1"> Num1</string>
+    <string name="Data2">Num2</string>
+    <string name="ResultOperation">Resultado</string>
+    <string name="NameOperation">NombreOperacion </string>
 </resources>
+        <!-- texto -->
