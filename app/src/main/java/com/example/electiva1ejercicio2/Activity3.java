@@ -51,7 +51,7 @@ public class Activity3 extends AppCompatActivity {
         Numbers Data = new Numbers();
         Intent Dataintent = getIntent();
         Data.setNumber1(Dataintent.getIntExtra(getString(R.string.Data1),0));
-        Data.setNumber2(Dataintent.getIntExtra(getString(R.string.Data1),0));
+        Data.setNumber2(Dataintent.getIntExtra(getString(R.string.Data2),0));
 
         int id = RbtGroup1.getCheckedRadioButtonId();
         switch (id)
@@ -72,12 +72,19 @@ public class Activity3 extends AppCompatActivity {
                 result = Operation.Dividir(Data);
                 Operacion = (String) RbtDividir.getText();
                 break;
+            default:
+                Toast.makeText(this, "por favor seleccione una opcion", Toast.LENGTH_LONG).show();
+                break;
         }
 
-        Intent intent = new Intent(this, Activity2.class);
-        intent.putExtra(getString(R.string.ResultOperation), result);
-        intent.putExtra(getString(R.string.NameOperation), Operacion);
-        startActivity(intent);
+        if (Operacion != "")
+        {
+            Intent intent = new Intent(this, Activity2.class);
+            intent.putExtra(getString(R.string.ResultOperation), result);
+            intent.putExtra(getString(R.string.NameOperation), Operacion);
+            startActivity(intent);
+        }
+
     }
 
 }

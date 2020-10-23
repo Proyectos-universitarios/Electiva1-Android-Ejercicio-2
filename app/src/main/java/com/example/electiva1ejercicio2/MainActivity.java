@@ -31,22 +31,27 @@ public class MainActivity extends AppCompatActivity {
         dataUser.setUsername(EditUsername.getText().toString().trim());
         dataUser.setPassword(EditPassword.getText().toString().trim());
 
-        if (!isNullOrBlank(dataUser.getUsername()) && !isNullOrBlank(dataUser.getPassword()))
+        if (!isNullOrBlank(dataUser.getUsername()))
         {
-          if (ValidatePassword(dataUser.getUsername(), dataUser.getPassword()))
-          {
-              Intent intent = new Intent(this, Activity2.class);
-              Toast.makeText(this, "inicio de sesion exitoso", Toast.LENGTH_LONG).show();
-              startActivity(intent);
-          }else
-              {
-                  Toast.makeText(this, "Usuario o contraseña incorrecta", Toast.LENGTH_LONG).show();
-              }
+            if(!isNullOrBlank(dataUser.getPassword()))
+            {
+                if (ValidatePassword(dataUser.getUsername(), dataUser.getPassword()))
+                {
+                    Intent intent = new Intent(this, Activity2.class);
+                    Toast.makeText(this, "C", Toast.LENGTH_LONG).show();
+                    startActivity(intent);
+                }else
+                {
+                    Toast.makeText(this, "Usuario o contraseña incorrecta", Toast.LENGTH_LONG).show();
+                }
+            }else
+            {
+                this.EditPassword.setError("Este campo es obligatorio y debe estar lleno");
+            }
         }else
           {
-              Toast.makeText(this, "a ocurrido un error, por favor revise que los campos esten llenos", Toast.LENGTH_LONG).show();
+              this.EditUsername.setError("Este campo es obligatorio y debe estar lleno");
           }
-
     }
 
     public boolean ValidatePassword(String Username,String Password)

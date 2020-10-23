@@ -37,14 +37,21 @@ public class Activity2 extends AppCompatActivity {
         data.setNumber1(Integer.parseInt(EditNum1.getText().toString()));
         data.setNumber2(Integer.parseInt(EditNum2.getText().toString()));
 
-        if (data.getNumber1() > 0 && data.getNumber2() > 0 )
+        if (data.getNumber1() > 0 &&  String.valueOf(data.getNumber1()) != null )
         {
-            Intent intent = new Intent(this, Activity3.class);
-            intent.putExtra(getString(R.string.Data1), data.getNumber1());
-            intent.putExtra(getString(R.string.Data2), data.getNumber2());
-            startActivity(intent);
+            if (data.getNumber2() > 0  && String.valueOf(data.getNumber2()) != null )
+            {
+                Intent intent = new Intent(this, Activity3.class);
+                intent.putExtra(getString(R.string.Data1), data.getNumber1());
+                intent.putExtra(getString(R.string.Data2), data.getNumber2());
+                startActivity(intent);
+            }else
+            {
+                this.EditNum1.setError("Este campo es obligatorio y Los numeros deben ser mayores a 0");
+            }
+
         }else{
-            Toast.makeText(this, "Los numeros deben ser mayores a 0", Toast.LENGTH_LONG).show();
+            this.EditNum2.setError("Este campo es obligatorio y Los numeros deben ser mayores a 0");
         }
 
     }
@@ -54,8 +61,13 @@ public class Activity2 extends AppCompatActivity {
         Intent intent = getIntent();
         if (intent != null)
         {
-            TextVOperacion.setText("Operación: " +intent.getStringExtra(getString(R.string.NameOperation)));
-            TextVResultado.setText("Resultado: " + Integer.toString(intent.getIntExtra(getString(R.string.ResultOperation),0)));
+            if(intent.getStringExtra(getString(R.string.NameOperation)) != null)
+            {
+
+                TextVOperacion.setText("Operación: " +intent.getStringExtra(getString(R.string.NameOperation)));
+                TextVResultado.setText("Resultado: " + Integer.toString(intent.getIntExtra(getString(R.string.ResultOperation),0)));
+            }
+
         }
     }
 
